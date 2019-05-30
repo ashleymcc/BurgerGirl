@@ -1,0 +1,159 @@
+
+   <div class="container">
+
+    <div class="row" id="header">
+        
+        <img src="/assets/css/images/burger.jpg" alt="burger" id="burger">
+        <h1>Burger!</h1>
+    </div>
+
+    <div class="row" id="burg-form">
+    
+        <h2>Add a Burger</h2>
+        <form class="create-form" action="/burgers" method="POST">
+    
+            <div class="form-group">
+                <label for="burg">Burger Name:</label>
+                <input type="text" id="burg" name="burger_name">
+            </div>
+    
+            <button type="submit">Add Burger</button>
+        </form>
+    
+    
+    </div>
+
+    <div class="row" id="content">
+        
+            <h2>Burgers Remaining!</h2>
+            
+            <ul>
+                {{#each burgers}} {{#unless devoured}} {{>burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+            </ul>
+
+
+            <h2>Burgers Devoured!!!!</h2>
+            <ul>
+                {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devoured=false}} {{/if}} {{/each}}
+            </ul>
+
+    </div>
+   
+    
+
+</div>
+
+
+
+{{!-- <div class="container">
+
+  <div class="row jumbotron-fluid col-lg-12 mx-auto text-center d-block">
+<h1>Eat Da Burger</h1>
+<img id="burger-pic" class="img-fluid" src="/assets/images/Burger-Transparent-Images.png" alt="Burger">
+<br>
+  </div>
+  <div class="row jumbotron mx-auto pt-2 pb-1">
+  <div class="col-lg-4 col-md-4 col-sm-4 list-group">
+<div class='notDevoured section'>
+        <h2 class="text-center">On My Plate</h2>
+        <table class ="table">
+            <thead>
+            <tr>
+                <th class="titleCenter">Not devoured</th>
+                <th class="titleCenter">Devour it</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {{#each burgers}}
+                    {{#unless this.devoured}}
+                            <td>
+                                {{this.burger_name}}
+                            </td>
+                            <td>
+                                <button id="update" class="btnColor btn btn-success change-devour" data-id="{{this.id}}">Devour it!</button>
+                            </td>
+                    {{/unless}}
+                        </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4">
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 list-group">
+<div class="devoured section">
+  <h2 class="text-center">In my Belly</h2>
+  <table class ="table">
+        <thead>
+            <tr>
+                <th class="titleCenter">Devoured</th>
+                <th class="titleCenter">Delete it</th>
+            </tr>
+            </thead>
+        <tbody>
+          <tr>        
+                {{#each burgers}}
+                    {{#if this.devoured}}
+                        <td>
+                            {{this.burger_name}}
+                            </td>
+                            <td>
+                            <button id="delete" class="btnColor btn btn-danger" data-id="{{this.id}}">Delete</button>
+                            </td>
+                    {{/if}}
+                    </tr>
+                {{/each}}
+             </tbody>   
+            </table>
+    </div>
+</div>
+</div>
+
+<div class="row jumbotron d-block mx-auto pt-3 pb-2">
+    <div class="section d-block mx-auto col-lg-12 col-md-12 col-sm-12">
+        <form class="create-update-form" action="/" method="POST">
+            <div class="form-group mx-auto d-block">
+                <label for="ca">Burger Name:</label>
+                <input type="text" id="burgerInput" name="burger_name" placeholder="Add a burger">
+            <button class="btnColor btn btn-success" type="submit">Add burger</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+
+<script>
+$("#delete").on("click", function(){
+    let id = $(this).attr("data-id");
+    $.ajax({
+        method: "DELETE",
+        url: `/${id}`
+        
+    }).then(function(results){
+        console.log(results)
+        location.reload();
+    })
+    
+})
+//update
+$("#update").on("click", function(){
+    let id = $(this).attr("data-id");
+    console.log(id)
+    $.ajax({
+        method: "PUT",
+        url: `/${id}`
+        
+    }).then(function(results){
+        console.log(results)
+        location.reload();
+    });
+    
+});
+
+
+
+</script> --}}

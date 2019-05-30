@@ -1,0 +1,57 @@
+/* Global
+* {
+    box-sizing: border-box;
+
+} */
+body, html {
+    height: 100%;
+  
+
+    /* The image used */
+    background-image: url("images/burger.jpg");
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+/* body {
+    background-image: url("images/burger.jpg");
+    
+  } */
+
+#burg-form {
+    margin-left: 50px; 
+}
+
+button { 
+    margin: 5px;
+}
+
+#header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-left: 100px;
+   }
+
+#header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+   }
+
+#header {
+    margin-bottom: 100px; 
+}
+
+
+
+#content {
+    margin: 50px; 
+}
+
+
